@@ -1,9 +1,18 @@
 import cv2
 import numpy as np
 import os 
+#WORKFLOW----->
+# 1 . capturing the video stream 
+# 2 . detecting the face and converting the face into grey 100x100 image
+# 3 . stacking the flattened face data horizontaly with name
+# 4 . stacking the previous face data to the current face data if exist.
+# 5 . saving the file with the face data and holder name to .npy (as numpy array)
+# 6 . C->to capture 10 faces with current holder name
+# 7 . q -> to quit 
+#Capture video stream
 cap = cv2.VideoCapture(0)
+#init the classifier 
 classifier = cv2.CascadeClassifier('test\\haarcascade_frontalface_default.xml')
-
 name = input('enter subject name : ')
 frames = []
 output = []
